@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-// Mock profile data with more profiles
+// Mock profile data with unique diverse images
 const mockProfiles = [
   {
     id: '1',
@@ -17,8 +17,8 @@ const mockProfiles = [
     occupation: 'Software Engineer',
     education: 'Stanford University',
     images: [
-      'https://images.unsplash.com/photo-1494790108755-2616b612b6c7?w=400&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=600&fit=crop'
+      'https://images.unsplash.com/photo-1494790108755-2616b612b6c7?w=400&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=600&fit=crop&auto=format'
     ],
     bio: 'Love hiking, coffee, and building cool apps. Looking for someone to explore the city with!',
     interests: ['Technology', 'Hiking', 'Coffee', 'Travel', 'Photography'],
@@ -33,8 +33,8 @@ const mockProfiles = [
     occupation: 'Graphic Designer',
     education: 'UCLA',
     images: [
-      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=600&fit=crop'
+      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?w=400&h=600&fit=crop&auto=format'
     ],
     bio: 'Artist at heart, always looking for inspiration. Love museums, galleries, and good conversations.',
     interests: ['Art', 'Design', 'Museums', 'Yoga', 'Cooking'],
@@ -49,8 +49,8 @@ const mockProfiles = [
     occupation: 'Marketing Manager',
     education: 'Northwestern University',
     images: [
-      'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=600&fit=crop'
+      'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=600&fit=crop&auto=format'
     ],
     bio: 'Fitness enthusiast and foodie. Always up for trying new restaurants and activities!',
     interests: ['Fitness', 'Food', 'Running', 'Wine', 'Books'],
@@ -65,8 +65,8 @@ const mockProfiles = [
     occupation: 'Data Scientist',
     education: 'University of Washington',
     images: [
-      'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=400&h=600&fit=crop'
+      'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1539571696657-9a65bdcb86d8?w=400&h=600&fit=crop&auto=format'
     ],
     bio: 'Tech lover with a passion for outdoor adventures. Always learning something new!',
     interests: ['Technology', 'Hiking', 'Data', 'Books', 'Gaming'],
@@ -81,13 +81,61 @@ const mockProfiles = [
     occupation: 'Photographer',
     education: 'University of Texas',
     images: [
-      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=400&h=600&fit=crop'
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=600&fit=crop&auto=format'
     ],
     bio: 'Capturing life through my lens. Love music festivals, art, and spontaneous adventures.',
     interests: ['Photography', 'Music', 'Art', 'Travel', 'Dogs'],
     verified: true,
     distance: 4.7
+  },
+  {
+    id: '6',
+    name: 'Zoe',
+    age: 27,
+    location: 'Miami, FL',
+    occupation: 'Interior Designer',
+    education: 'Florida International University',
+    images: [
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?w=400&h=600&fit=crop&auto=format'
+    ],
+    bio: 'Creating beautiful spaces and living life to the fullest. Beach lover and sunset chaser.',
+    interests: ['Design', 'Beach', 'Yoga', 'Travel', 'Art'],
+    verified: true,
+    distance: 3.8
+  },
+  {
+    id: '7',
+    name: 'Aria',
+    age: 24,
+    location: 'Portland, OR',
+    occupation: 'Barista & Writer',
+    education: 'Reed College',
+    images: [
+      'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=400&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&h=600&fit=crop&auto=format'
+    ],
+    bio: 'Coffee enthusiast and aspiring novelist. Love rainy days, bookstores, and deep conversations.',
+    interests: ['Writing', 'Coffee', 'Books', 'Nature', 'Music'],
+    verified: false,
+    distance: 2.1
+  },
+  {
+    id: '8',
+    name: 'Luna',
+    age: 31,
+    location: 'Denver, CO',
+    occupation: 'Veterinarian',
+    education: 'Colorado State University',
+    images: [
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1521577352947-9bb58764b69a?w=400&h=600&fit=crop&auto=format'
+    ],
+    bio: 'Animal lover and mountain enthusiast. When I\'m not caring for pets, I\'m hiking the Rockies.',
+    interests: ['Animals', 'Hiking', 'Skiing', 'Volunteering', 'Nature'],
+    verified: true,
+    distance: 4.3
   }
 ];
 
@@ -249,6 +297,10 @@ const DiscoverySection: React.FC = () => {
                       src={profile.images[0]}
                       alt={profile.name}
                       className="w-full h-2/3 object-cover rounded-t-3xl"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&auto=format';
+                      }}
                     />
                     <div className="p-6">
                       <div className="flex items-center justify-between mb-2">
