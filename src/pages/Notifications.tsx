@@ -12,7 +12,7 @@ const Notifications = () => {
     {
       id: 1,
       type: 'match',
-      user: { name: 'Emma Watson', image: 'https://images.unsplash.com/photo-1494790108755-2616b612b6c7?w=100&h=100&fit=crop' },
+      user: { name: 'Emma Watson', image: 'https://images.unsplash.com/photo-1494790108755-2616b612b6c7?w=100&h=100&fit=crop&auto=format' },
       message: 'You have a new match!',
       time: '2 minutes ago',
       unread: true
@@ -20,7 +20,7 @@ const Notifications = () => {
     {
       id: 2,
       type: 'like',
-      user: { name: 'Sophie Chen', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop' },
+      user: { name: 'Sophie Chen', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&auto=format' },
       message: 'Liked your profile',
       time: '1 hour ago',
       unread: true
@@ -28,7 +28,7 @@ const Notifications = () => {
     {
       id: 3,
       type: 'message',
-      user: { name: 'Isabella Rodriguez', image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop' },
+      user: { name: 'Isabella Rodriguez', image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop&auto=format' },
       message: 'Hey! How was your weekend?',
       time: '3 hours ago',
       unread: false
@@ -36,7 +36,7 @@ const Notifications = () => {
     {
       id: 4,
       type: 'view',
-      user: { name: 'Maya Patel', image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop' },
+      user: { name: 'Maya Patel', image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop&auto=format' },
       message: 'Viewed your profile',
       time: '5 hours ago',
       unread: false
@@ -44,9 +44,33 @@ const Notifications = () => {
     {
       id: 5,
       type: 'super_like',
-      user: { name: 'Ana Silva', image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop' },
+      user: { name: 'Ana Silva', image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&auto=format' },
       message: 'Super liked you!',
       time: '1 day ago',
+      unread: false
+    },
+    {
+      id: 6,
+      type: 'match',
+      user: { name: 'Zoe Martinez', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&auto=format' },
+      message: 'You have a new match!',
+      time: '2 days ago',
+      unread: false
+    },
+    {
+      id: 7,
+      type: 'like',
+      user: { name: 'Aria Johnson', image: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=100&h=100&fit=crop&auto=format' },
+      message: 'Liked your profile',
+      time: '3 days ago',
+      unread: false
+    },
+    {
+      id: 8,
+      type: 'view',
+      user: { name: 'Luna Thompson', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&auto=format' },
+      message: 'Viewed your profile',
+      time: '4 days ago',
       unread: false
     }
   ]);
@@ -83,6 +107,11 @@ const Notifications = () => {
       default:
         return 'bg-muted/10 border-muted/20';
     }
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format';
   };
 
   const unreadCount = notifications.filter(n => n.unread).length;
@@ -142,6 +171,7 @@ const Notifications = () => {
                             src={notification.user.image}
                             alt={notification.user.name}
                             className="w-12 h-12 rounded-full object-cover"
+                            onError={handleImageError}
                           />
                           <div className={`absolute -bottom-1 -right-1 p-1 rounded-full border-2 border-background ${getNotificationBg(notification.type)}`}>
                             {getNotificationIcon(notification.type)}

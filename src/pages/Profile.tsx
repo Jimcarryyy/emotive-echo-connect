@@ -18,9 +18,10 @@ const Profile = () => {
     education: 'Stanford University',
     bio: 'Passionate about design, travel, and good coffee. Looking for someone who shares my love for adventure and meaningful conversations. Always up for trying new restaurants or exploring hidden gems in the city.',
     images: [
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=600&fit=crop'
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=600&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=600&fit=crop&auto=format'
     ],
     interests: ['Photography', 'Hiking', 'Cooking', 'Travel', 'Art', 'Music'],
     preferences: {
@@ -35,6 +36,11 @@ const Profile = () => {
     },
     verified: true,
     lastActive: '2 hours ago'
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&auto=format';
   };
 
   return (
@@ -77,6 +83,7 @@ const Profile = () => {
                             src={userProfile.images[0]}
                             alt={userProfile.name}
                             className="w-32 h-32 rounded-2xl object-cover"
+                            onError={handleImageError}
                           />
                           {userProfile.verified && (
                             <div className="absolute -top-2 -right-2 bg-romantic-pink text-white rounded-full p-1">
@@ -201,6 +208,7 @@ const Profile = () => {
                           src={image}
                           alt={`Photo ${index + 1}`}
                           className="w-full h-full object-cover"
+                          onError={handleImageError}
                         />
                         {index === 0 && (
                           <div className="absolute top-2 left-2 bg-romantic-pink text-white text-xs px-2 py-1 rounded">

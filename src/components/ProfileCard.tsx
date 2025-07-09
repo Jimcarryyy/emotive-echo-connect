@@ -47,6 +47,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profile, onSwipe }) => {
     }
   };
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    // Fallback to a default image if the current one fails to load
+    const target = e.target as HTMLImageElement;
+    target.src = `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&auto=format`;
+  };
+
   return (
     <motion.div
       className="absolute inset-0 cursor-grab active:cursor-grabbing"
@@ -72,6 +78,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profile, onSwipe }) => {
             src={profile.images[currentImageIndex]}
             alt={`${profile.name}`}
             className="w-full h-full object-cover"
+            onError={handleImageError}
+            loading="lazy"
           />
           
           {/* Image Navigation Dots */}
